@@ -27,12 +27,12 @@ loop do
     ans = gets.chomp.downcase
     if ans == "yes"
         puts "=" * 20
-        puts city_name(code_book)
+        puts city_name(code_book) #yesma code_book use huncha because we are trying to get stuff from our database "code_book"
         puts "=" * 20
         puts "Select a city from the list provided above: "
         selection = gets.chomp
         if code_book.include?(selection)
-            puts "The area code for #{selection} is #{city_code(code_book,selection)}."
+            puts "The area code for #{selection} is #{city_code(code_book,selection)}." #yesma code_book is hash (our database) and selection is key
             puts "Thank You for using our services."
         else
             puts "The city name you entered is not in the database provided above."
