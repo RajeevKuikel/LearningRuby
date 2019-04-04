@@ -1,4 +1,4 @@
-dial_book = {
+code_book={
     "lubbock" => "806",
     "lawton" => "508",
     "newYork" => "212",
@@ -6,33 +6,38 @@ dial_book = {
     "sanFrancisco" => "301",
     "miami" => "305",
     "edison" => "908",
-    "Las Vegas" => "702",
+    "lasvegas" => "702",
     "orlando" => "407",
     "lancaster" => "717"
 }
 
-def city_name(some)
-    some.keys #yesle chai pahilo key matrai lincha which is city names
+def city_name(ct)
+    ct.keys #yesle chai pahilo key matrai lincha which is city names #ani method ko argument can be anything which here is ct
 end
 
-def city_code(some,key)
-    some[key] #yesle chai hash ko second elements matrai lincha which is area code
+def city_code(ct,key)
+    ct[key] #yesle chai second ko key haru matrai lincha ra yesma duita arguments jancha kina ki hamle second ko lina khojiraka chau
 end
 
-loop do
-    puts "Do you want to search for a area code from a small database?(Y/N)"
-    input = gets.chomp.downcase #.downcase le chai capital lekhe pani small banaidincha letter lai
-    if input == "y"
-        puts "Here is the list of cities you can choose from: "
-        puts city_name(dial_book)
-        puts "Enter the city name you want to get the area code for: "
-        city = gets.chomp
-        if dial_book.include?(city)
-            puts "The area code for #{city} is #{city_code(dial_book,city)}"
+puts "This program gives you a list of ten cities. You can choose a city to get its area code."
+puts "*"*90
+
+loop do 
+    puts "Do you want to look up a city code? (Yes or No)"
+    ans = gets.chomp.downcase
+    if ans == "yes"
+        puts "=" * 20
+        puts city_name(code_book)
+        puts "=" * 20
+        puts "Select a city from the list provided above: "
+        selection = gets.chomp
+        if code_book.include?(selection)
+            puts "The area code for #{selection} is #{city_code(code_book,selection)}."
+            puts "Thank You for using our services."
         else
-            puts "The city you entered is not in the database."
-        end 
-    else 
+            puts "The city name you entered is not in the database provided above."
+        end
+    else
         break
     end
 end
